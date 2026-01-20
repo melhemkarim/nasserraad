@@ -1,65 +1,178 @@
-import Image from "next/image";
+// app/page.tsx
+'use client'
 
-export default function Home() {
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+
+const images = [
+  { id: 1, src: '/1.jpg' },
+  { id: 2, src: '/2.jpg' },
+  { id: 3, src: '/3.jpg' },
+  { id: 4, src: '/4.jpg' },
+  { id: 5, src: '/5.jpg' },
+  { id: 6, src: '/6.jpg' },
+  { id: 7, src: '/7.jpg' },
+  { id: 8, src: '/8.jpg' },
+  { id: 9, src: '/9.jpg' },
+  { id: 10, src: '/10.jpg' },
+  { id: 11, src: '/11.png' },
+  { id: 12, src: '/12.jpg' },
+]
+
+
+const videos = [
+  { id: 1, src: '/v1.mov' },
+  { id: 2, src: '/v2.mov' },
+]
+
+export default function Page() {
+  const [activeImage, setActiveImage] = useState<string | null>(null)
+  const videoRefs = useRef<HTMLVideoElement[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement
+          if (entry.isIntersecting) {
+            video.play()
+          } else {
+            video.pause()
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    videoRefs.current.forEach((video) => {
+      if (video) observer.observe(video)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-white text-black overflow-x-hidden">
+
+      {/* HERO */}
+      <section className="px-4 pt-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-[12vw] font-extrabold tracking-tight text-center leading-none"
+        >
+          NASSER RAAD
+        </motion.h1>
+      </section>
+
+      {/* MODEL INFO */}
+      <section id="about" className="max-w-5xl mx-auto px-4 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+        >
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Model Information</h2>
+          </div>
+          <div className="grid grid-cols-2 gap-4 text-lg">
+            <div><strong>Height: 185 cms</strong></div>
+            <div><strong>Weight: 80 kgs </strong></div>
+            <div><strong>Chest: 108 cms</strong></div>
+            <div><strong>Waist: 31 cms</strong></div>
+            <div><strong>Shoe size: 41</strong></div>
+            <div><strong>Nationality: Lebanese</strong></div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* IMAGE GRID */}
+<section className="px-4 pb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {images.map((img, index) => {
+const isLastRow = index >= images.length - 2
+return (
+<motion.div
+key={img.id}
+whileHover={{ scale: 1.03 }}
+initial={{ opacity: 0, y: 40 }}
+whileInView={{ opacity: 1, y: 0 }}
+viewport={{ once: true }}
+transition={{ duration: 0.4 }}
+className={`relative aspect-[3/4] bg-neutral-200 cursor-pointer overflow-hidden `}
+onClick={() => setActiveImage(img.src)}
+>
+<Image src={img.src} alt="Model" fill className="object-cover" />
+</motion.div>
+)
+})}
+</div>
+</section>
+
+      {/* VIDEOS */}
+<section className="px-4 py-20">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+{videos.map((video, index) => (
+<motion.div
+key={video.id}
+initial={{ opacity: 0, y: 40 }}
+whileInView={{ opacity: 1, y: 0 }}
+viewport={{ once: true }}
+transition={{ duration: 0.5 }}
+className="relative w-full max-w-sm mx-auto aspect-[9/16] bg-black overflow-hidden"
+>
+<video
+ref={(el) => {
+if (el) videoRefs.current[index] = el
+}}
+src={video.src}
+muted
+loop
+playsInline
+className="w-full h-full object-contain bg-black"
+/>
+</motion.div>
+))}
+</div>
+</section>
+
+      <footer className="border-t border-black/10 py-16 px-4">
+<div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+<a href="#about" className="text-xl font-semibold tracking-wide hover:underline">About</a>
+<div className="flex gap-8 text-lg font-medium">
+<a href="https://www.instagram.com/nasser_raad.x/" className="relative group">
+Instagram
+<span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all group-hover:w-full" />
+</a>
+
+</div>
+</div>
+</footer>
+
+      {/* FULLSCREEN VIEWER */}
+      <AnimatePresence>
+        {activeImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center cursor-pointer"
+            onClick={() => setActiveImage(null)}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            <motion.img
+              src={activeImage}
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="max-h-[90vh] max-w-[90vw] object-contain"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </main>
+  )
 }
