@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Nasser Raad Portfolio",
   description: "Nasser Raad's modeling portfolio website",
+  openGraph: {
+    type: "website",
+    title: "Nasser Raad Portfolio",
+    description: "Explore the stunning photos and videos of Nasser Raad, professional model.",
+  },
 };
 
 export default function RootLayout({
