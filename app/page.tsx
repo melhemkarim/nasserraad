@@ -4,7 +4,11 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { Instagram } from 'lucide-react'
+import { Playfair_Display } from 'next/font/google'
 
+
+const display = Playfair_Display({ subsets: ['latin'], weight: ['400','600','700'] })
 const images = [
   { id: 1, src: '/1.jpg' },
   { id: 2, src: '/2.jpg' },
@@ -68,27 +72,27 @@ export default function Page() {
       </section>
 
       {/* MODEL INFO */}
-      <section id="about" className="max-w-5xl mx-auto px-4 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
-        >
-          <div>
-            <h2 className="text-2xl font-semibold mb-2">Model Information</h2>
-          </div>
-          <div className="grid grid-cols-2 gap-4 text-lg">
-            <div><strong>Height: 185 cms</strong></div>
-            <div><strong>Weight: 80 kgs </strong></div>
-            <div><strong>Chest: 108 cms</strong></div>
-            <div><strong>Waist: 31 cms</strong></div>
-            <div><strong>Shoe size: 41</strong></div>
-            <div><strong>Nationality: Lebanese</strong></div>
-          </div>
-        </motion.div>
-      </section>
+      <section id="about" className="max-w-4xl mx-auto px-4 py-20">
+<motion.div
+initial={{ opacity: 0, y: 30 }}
+whileInView={{ opacity: 1, y: 0 }}
+viewport={{ once: true }}
+transition={{ duration: 0.6 }}
+className={`rounded-2xl border border-black/10 p-8 md:p-10 ${display.className}`}
+>
+<h2 className="text-3xl font-semibold tracking-tight mb-6">Model Information</h2>
+
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-[15px]">
+<div className="flex justify-between border-b py-2"><span className="opacity-70">Height</span><strong>185 cms</strong></div>
+<div className="flex justify-between border-b py-2"><span className="opacity-70">Weight</span><strong>80 kgs</strong></div>
+<div className="flex justify-between border-b py-2"><span className="opacity-70">Chest</span><strong>108 cms</strong></div>
+<div className="flex justify-between border-b py-2"><span className="opacity-70">Waist</span><strong>31 cms</strong></div>
+<div className="flex justify-between border-b py-2"><span className="opacity-70">Shoe Size</span><strong>41</strong></div>
+<div className="flex justify-between border-b py-2"><span className="opacity-70">Nationality</span><strong>Lebanese</strong></div>
+</div>
+</motion.div>
+</section>
 
       {/* IMAGE GRID */}
 <section className="px-4 pb-16">
@@ -144,11 +148,14 @@ className="w-full h-full object-contain bg-black"
 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
 <a href="#about" className="text-xl font-semibold tracking-wide hover:underline">About</a>
 <div className="flex gap-8 text-lg font-medium">
-<a href="https://www.instagram.com/nasser_raad.x/" className="relative group">
-Instagram
-<span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all group-hover:w-full" />
-</a>
-
+  <a
+    href="https://www.instagram.com/nasser_raad.x/"
+    className="relative group flex items-center gap-2"
+  >
+    <Instagram className="w-5 h-5" /> {/* Icon */}
+    Instagram
+    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all group-hover:w-full" />
+  </a>
 </div>
 </div>
 </footer>
