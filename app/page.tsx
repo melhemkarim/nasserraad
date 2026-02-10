@@ -101,6 +101,11 @@ export default function Page() {
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Chest</span><strong>108 cms</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Waist</span><strong>31 cms</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Shoe Size</span><strong>41</strong></div>
+            <div className="flex justify-between border-b py-2"><span className="opacity-70">Birth Date</span><strong>1/1/1999</strong></div>
+            <div className="flex justify-between border-b py-2"><span className="opacity-70">Hair Color</span><strong>Black</strong></div>
+            <div className="flex justify-between border-b py-2"><span className="opacity-70">Eye Color</span><strong>Brown</strong></div>
+            <div className="flex justify-between border-b py-2"><span className="opacity-70">City</span><strong>Dubai</strong></div>
+            <div className="flex justify-between border-b py-2"><span className="opacity-70">Activities</span><strong>Horse Riding , Sports , Swimming</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Nationality</span><strong>Lebanese</strong></div>
           </div>
         </motion.div>
@@ -151,39 +156,31 @@ export default function Page() {
         </div>
       </section>
 
-      {/* EXPERIENCE */}
-      <section className="px-4 py-20 border-t border-black/10">
-        <div className={`max-w-4xl mx-auto ${display.className}`}>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl font-semibold tracking-tight mb-10"
-          >
-            Experience
-          </motion.h2>
+      {/* ABOUT ME */}
+<section className="px-4 py-20 border-t border-black/10">
+<div className={`max-w-4xl mx-auto ${display.className}`}>
+<motion.h2
+initial={{ opacity: 0, y: 30 }}
+whileInView={{ opacity: 1, y: 0 }}
+viewport={{ once: true }}
+transition={{ duration: 0.6 }}
+className="text-3xl font-semibold tracking-tight mb-6"
+>
+About Me
+</motion.h2>
 
-          <div className="space-y-10">
-            {experiences.map((exp, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="flex flex-col md:flex-row gap-6"
-              >
-                <div className="text-xl font-semibold w-24 shrink-0">{exp.year}</div>
-                <div className="border-l pl-6">
-                  <h3 className="text-lg font-medium mb-1">{exp.title}</h3>
-                  <p className="text-[15px] opacity-70 leading-relaxed">{exp.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
+<motion.p
+initial={{ opacity: 0, y: 20 }}
+whileInView={{ opacity: 1, y: 0 }}
+viewport={{ once: true }}
+transition={{ duration: 0.6, delay: 0.1 }}
+className="text-[16px] leading-relaxed opacity-80 max-w-3xl"
+>
+I am a professional male model based in Dubai with experience in fashion, editorial, and commercial modeling. I am confident in front of the camera, take direction well, and adapt easily to different creative concepts. I am open to test shoots, campaigns, and collaborations with photographers, designers, and brands.
+</motion.p>
+</div>
+</section>
 
       {/* FOOTER */}
       <footer className="border-t border-black/10 py-16 px-4">
