@@ -144,13 +144,17 @@ export default function Page() {
               className="relative w-full max-w-sm mx-auto aspect-[9/16] bg-black overflow-hidden"
             >
               <video
-                ref={(el) => el && (videoRefs.current[index] = el)}
-                src={video.src}
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-contain bg-black"
-              />
+  ref={(el) => {
+    if (el) {
+      videoRefs.current[index] = el
+    }
+  }}
+  src={video.src}
+  muted
+  loop
+  playsInline
+  className="w-full h-full object-contain bg-black"
+/>
             </motion.div>
           ))}
         </div>
