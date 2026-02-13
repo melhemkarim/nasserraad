@@ -19,12 +19,19 @@ const images = [
   { id: 8, src: '/88.jpeg' },
   { id: 9, src: '/99.jpeg' },
   { id: 10, src: '/100.jpeg' },
-  { id: 11, src: '/101.jpg' },
-  { id: 12, src: '/102.jpg' },
-  { id: 13, src: '/103.jpg' },
-  { id: 14, src: '/104.jpg' },
-  { id: 15, src: '/105.jpg' },
-  { id: 16, src: '/106.jpg' },
+  { id: 11, src: '/a.jpeg' },
+  { id: 12, src: '/b.jpeg' },
+  { id: 13, src: '/c.jpeg' },
+  { id: 14, src: '/d.jpeg' },
+  { id: 15, src: '/e.jpeg' },
+  { id: 16, src: '/f.jpeg' },
+  { id: 17, src: '/g.jpeg' },
+  { id: 18, src: '/h.jpeg' },
+  { id: 19, src: '/i.jpeg' },
+  { id: 20, src: '/101.jpg' },
+  { id: 21, src: '/102.jpg' },
+  { id: 22, src: '/103.jpg' },
+
 ]
 
 const videos = [
@@ -96,7 +103,7 @@ export default function Page() {
         >
           <h2 className="text-3xl font-semibold tracking-tight mb-6">Model Information</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-[15px]">
-            <div className="flex justify-between border-b py-2"><span className="opacity-70">Height</span><strong>185 cms</strong></div>
+            <div className="flex justify-between border-b py-2"><span className="opacity-70">Height</span><strong>190 cms</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Weight</span><strong>80 kgs</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Chest</span><strong>108 cms</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Waist</span><strong>31 cms</strong></div>
