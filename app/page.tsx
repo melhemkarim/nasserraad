@@ -9,35 +9,36 @@ import { Playfair_Display } from 'next/font/google'
 const display = Playfair_Display({ subsets: ['latin'], weight: ['400', '600', '700'] })
 
 const images = [
-  { id: 1, src: '/11.jpeg' },
-  { id: 2, src: '/22.jpeg' },
-  { id: 3, src: '/33.jpeg' },
-  { id: 4, src: '/44.jpeg' },
-  { id: 5, src: '/55.jpeg' },
-  { id: 6, src: '/66.jpeg' },
-  { id: 7, src: '/77.jpeg' },
-  { id: 8, src: '/88.jpeg' },
-  { id: 9, src: '/99.jpeg' },
-  { id: 10, src: '/100.jpeg' },
-  { id: 11, src: '/a.jpeg' },
-  { id: 12, src: '/b.jpeg' },
-  { id: 13, src: '/c.jpeg' },
-  { id: 14, src: '/d.jpeg' },
-  { id: 15, src: '/e.jpeg' },
-  { id: 16, src: '/f.jpeg' },
-  { id: 17, src: '/g.jpeg' },
-  { id: 18, src: '/h.jpeg' },
-  { id: 19, src: '/i.jpeg' },
-  { id: 20, src: '/101.jpg' },
-  { id: 21, src: '/102.jpg' },
-  { id: 22, src: '/103.jpg' },
+  { id: 1, src: '/1f.jpeg' },
+  { id: 2, src: '/11.jpeg' },
+  { id: 3, src: '/22.jpeg' },
+  { id: 4, src: '/33.jpeg' },
+  { id: 5, src: '/44.jpeg' },
+  { id: 6, src: '/55.jpeg' },
+  { id: 7, src: '/66.png' },
+  { id: 8, src: '/77.jpeg' },
+  { id: 9, src: '/88.jpeg' },
+  { id: 10, src: '/99.jpeg' },
+  { id: 11, src: '/100.jpeg' },
+  { id: 12, src: '/a.jpeg' },
+  { id: 13, src: '/b.jpeg' },
+  { id: 14, src: '/c.jpeg' },
+  { id: 15, src: '/d.jpeg' },
+  { id: 16, src: '/e.jpeg' },
+  { id: 17, src: '/f.jpeg' },
+  { id: 18, src: '/g.jpeg' },
+  { id: 19, src: '/h.jpeg' },
+  { id: 20, src: '/i.jpeg' },
+  { id: 21, src: '/101.jpeg' },
+  { id: 22, src: '/102.jpeg' },
+  { id: 23, src: '/103.jpg' },
+  { id: 24, src: '/2f.jpg' },
+  { id: 25, src: '/107.jpg' },
+
 
 ]
 
-const videos = [
-  { id: 1, src: '/v1.mov' },
-  { id: 2, src: '/v2.mov' },
-]
+
 
 const experiences = [
   {
@@ -106,7 +107,8 @@ export default function Page() {
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Height</span><strong>190 cms</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Weight</span><strong>80 kgs</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Chest</span><strong>108 cms</strong></div>
-            <div className="flex justify-between border-b py-2"><span className="opacity-70">Waist</span><strong>31 cms</strong></div>
+            <div className="flex justify-between border-b py-2"><span className="opacity-70">Waist</span><strong>75 cms</strong></div>
+            <div className="flex justify-between border-b py-2"><span className="opacity-70">Hips</span><strong>90 cms</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Shoe Size</span><strong>41</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Birth Date</span><strong>1/1/1999</strong></div>
             <div className="flex justify-between border-b py-2"><span className="opacity-70">Hair Color</span><strong>Black</strong></div>
@@ -138,34 +140,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* VIDEOS */}
-      <section className="px-4 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {videos.map((video, index) => (
-            <motion.div
-              key={video.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="relative w-full max-w-sm mx-auto aspect-[9/16] bg-black overflow-hidden"
-            >
-              <video
-  ref={(el) => {
-    if (el) {
-      videoRefs.current[index] = el
-    }
-  }}
-  src={video.src}
-  muted
-  loop
-  playsInline
-  className="w-full h-full object-contain bg-black"
-/>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      
 
       {/* ABOUT ME */}
 <section className="px-4 py-20 border-t border-black/10">
@@ -188,7 +163,7 @@ viewport={{ once: true }}
 transition={{ duration: 0.6, delay: 0.1 }}
 className="text-[16px] leading-relaxed opacity-80 max-w-3xl"
 >
-I am a professional male model based in Dubai with experience in fashion, editorial, and commercial modeling. I am confident in front of the camera, take direction well, and adapt easily to different creative concepts. I am open to test shoots, campaigns, and collaborations with photographers, designers, and brands.
+My name is Nasser Raad, a Dubai-based model with a passion for fashion, aesthetics, and visual storytelling. I bring confidence, discipline, and a strong presence to every project I work on. With a focus on clean lines, expressive poses, and modern style, I aim to create impactful visuals that connect with brands and audiences. I am always looking to collaborate with creative teams and push my portfolio to the next level.
 </motion.p>
 </div>
 </section>
